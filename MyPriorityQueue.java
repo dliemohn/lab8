@@ -5,38 +5,39 @@ class MyPriorityQueue<E> implements PriorityQueueADT<E> {
     // you can use either of the following declarations for your heap
     //ArrayList<E> heap;
     //E[] heap;
+	
+	ArrayList<E> heap;
 
    Comparator<E> comparator;
       
    MyPriorityQueue(Comparator<E> comparator){
       this.comparator = comparator;
+      heap = new ArrayList<E>();
       //heap = new ArrayList<E>();
       // or
       //heap = (E[]) new Object[/* initial length */];
    }
    
    public boolean add(E item){
-      //TODO:  Write this method
+	   int pointer = 0;
+      while(comparator.compare(item, heap.get(pointer)) > 0)
       return true;
    }
    
    public E remove(){
-      //TODO:  Write this method
-      return null;
+      return heap.get(this.size()-1);
    }
    
    public boolean isEmpty(){
-      //TODO:  Write this method
-      return false;
+	   return heap.isEmpty();
    }
    
    public int size(){
-       //TODO:  Write this method
-       return -1;
+       return heap.size();
    }
 
    public void clear(){
-       //TODO:  Write this method
+       heap.clear();
    }
 
    public String toString(){
